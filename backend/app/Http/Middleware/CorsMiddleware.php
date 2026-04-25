@@ -11,7 +11,8 @@ class CorsMiddleware
     {
         $response = $next($request);
 
-        $origin = 'http://laravel-test2.loc';
+        //$origin = 'http://laravel-test2.loc';
+        $origin = $request->getSchemeAndHttpHost();
 
         $response->headers->set('Access-Control-Allow-Origin', $origin);
         $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
