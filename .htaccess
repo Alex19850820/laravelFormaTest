@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Перенаправление с корня на /frontend/
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /frontend/ [R=301,L]
+
+    # Остальные правила для /frontend/ (если нужно)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^frontend/(.*)$ frontend/index.php [QSA,L]
+</IfModule>
