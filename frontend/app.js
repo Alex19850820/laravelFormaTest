@@ -34,7 +34,7 @@ window.FeedbackForm = {
       };
 
       try {
-        await axios.post('http://laravel-test2.loc/backend/public/api/feedback', feedback);
+        await axios.post('/backend/public/api/feedback', feedback);
         this.$store.dispatch('addFeedback', feedback);
         alert('Обращение отправлено!');
         this.name = '';
